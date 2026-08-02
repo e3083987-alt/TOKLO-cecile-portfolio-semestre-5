@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Académique — TOKLO Amivi Cécile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#FF4FA0;
+    --pink-deep:#E62E86;
+    --pink-soft:#FFDCEE;
+    --pink-wash:#FFF3FA;
+    --yellow:#FFCC1F;
+    --yellow-soft:#FFEDAE;
+    --yellow-wash:#FFFAE9;
+    --paper:#FFFDF8;
+    --white:#FFFFFF;
+    --ink:#241722;
+    --ink-soft:#5C4E58;
+    --line:#EFE1EC;
+    --max:920px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  ::selection{background:var(--yellow); color:var(--ink);}
+
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  .eyebrow{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--pink-deep);
+  }
+
+  a{color:var(--pink-deep);}
+
+  img{max-width:100%; display:block;}
+
+  /* ---------- Skip link / focus ---------- */
+  a:focus-visible, button:focus-visible{
+    outline:3px solid var(--pink-deep);
+    outline-offset:3px;
+  }
+
+  /* ---------- Top ribbon signature ---------- */
+  .ribbon{
+    position:relative;
+    height:14px;
+    width:100%;
+    background:repeating-linear-gradient(
+      -45deg,
+      var(--yellow) 0px, var(--yellow) 26px,
+      var(--pink) 26px, var(--pink) 52px,
+      var(--white) 52px, var(--white) 78px
+    );
+  }
+
+  /* ---------- Nav ---------- */
+  nav.toc{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(255,253,248,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .toc-inner{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:14px 24px;
+    display:flex;
+    gap:22px;
+    overflow-x:auto;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13px;
+    font-weight:500;
+  }
+  .toc-inner a{
+    text-decoration:none;
+    color:var(--ink-soft);
+    white-space:nowrap;
+    padding-bottom:4px;
+    border-bottom:2px solid transparent;
+    transition:border-color .2s, color .2s;
+  }
+  .toc-inner a:hover{ color:var(--pink-deep); border-color:var(--yellow);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:88px 24px 64px;
+    position:relative;
+  }
+  .hero .eyebrow{margin-bottom:18px; display:block;}
+  .hero h1{
+    font-size:clamp(42px, 7vw, 76px);
+    line-height:0.98;
+    color:var(--ink);
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--pink-deep);
+    font-weight:500;
+  }
+  .hero .role{
+    margin-top:22px;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:520px;
+  }
+  .hero .meta-row{
+    margin-top:32px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .pill{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13px;
+    font-weight:600;
+    padding:7px 14px;
+    border-radius:100px;
+    background:var(--white);
+    border:1.5px solid var(--line);
+    color:var(--ink-soft);
+  }
+  .pill.yellow{background:var(--yellow-soft); border-color:var(--yellow); color:#6B4E00;}
+  .pill.pink{background:var(--pink-soft); border-color:var(--pink); color:var(--pink-deep);}
+
+  /* ---------- Section shell ---------- */
+  section.block{
+    padding:76px 24px;
+    border-top:1px solid var(--line);
+  }
+  section.block.tint-pink{ background:var(--pink-wash); }
+  section.block.tint-yellow{ background:var(--yellow-wash); }
+  .block-inner{ max-width:var(--max); margin:0 auto; }
+
+  .section-head{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:18px;
+    align-items:baseline;
+    margin-bottom:34px;
+  }
+  .section-num{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:14px;
+    font-weight:700;
+    color:var(--pink-deep);
+    border-bottom:3px solid var(--yellow);
+    padding-bottom:6px;
+    width:fit-content;
+  }
+  .section-head h2{ font-size:clamp(26px,4vw,36px); }
+
+  p{ margin:0 0 16px; color:var(--ink); }
+  .lede{ color:var(--ink-soft); }
+
+  h3{ font-size:19px; margin:28px 0 10px; color:var(--pink-deep); }
+
+  blockquote{
+    margin:28px 0;
+    padding:22px 26px;
+    background:var(--white);
+    border-left:4px solid var(--yellow);
+    border-radius:2px;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:19px;
+    color:var(--ink);
+  }
+
+  ul{ padding-left:20px; margin:0 0 16px; }
+  li{ margin-bottom:8px; }
+  li::marker{ color:var(--pink-deep); }
+
+  /* ---------- Module list (signature element) ---------- */
+  .module-list{
+    list-style:none;
+    padding:0;
+    margin:0 0 8px;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  .module-list li{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    padding:13px 16px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-left:4px solid var(--yellow);
+    border-radius:6px;
+    color:var(--ink);
+    font-size:15.5px;
+  }
+  .module-list li:nth-child(even){ border-left-color:var(--pink); }
+  .module-list li::marker{ content:none; }
+  .module-code{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:12.5px;
+    font-weight:700;
+    color:var(--pink-deep);
+    white-space:nowrap;
+    min-width:88px;
+  }
+  .grades-group-label{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:30px 0 14px;
+  }
+  .grades-group-label:first-child{ margin-top:6px; }
+
+  /* ---------- Skills grid ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  @media (max-width:680px){ .skills-grid{ grid-template-columns:1fr; } }
+  .skill-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:24px;
+  }
+  .skill-card h3{ margin-top:0; }
+  .skill-card ul{ padding-left:18px; }
+
+  /* ---------- Timeline (axes de progression) ---------- */
+  .timeline{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+  .timeline-item{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:22px 24px;
+    position:relative;
+  }
+  .timeline-item .eyebrow{ display:block; margin-bottom:10px; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:64px 24px 48px;
+    text-align:center;
+    background:var(--ink);
+    color:var(--white);
+  }
+  footer .name{
+    font-family:'Fraunces',serif;
+    font-size:26px;
+    margin-bottom:8px;
+  }
+  footer .sub{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13px;
+    color:#C9B8C4;
+    letter-spacing:0.04em;
+  }
+
+  @media (max-width:680px){
+    .section-head{ grid-template-columns:1fr; gap:8px; }
+    .grade-row{ grid-template-columns:1fr; gap:6px; }
+    .grade-val{ text-align:left; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ribbon"></div>
+
+<nav class="toc" aria-label="Sommaire">
+  <div class="toc-inner">
+    <a href="#s1">Étudiante</a>
+    <a href="#s2">Établissement</a>
+    <a href="#s3">Introduction</a>
+    <a href="#s4">Semestre 5</a>
+    <a href="#s5">Analyse par UE</a>
+    <a href="#s6">Compétences</a>
+    <a href="#s7">Progression</a>
+    <a href="#s8">Conclusion</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <span class="eyebrow">Portfolio Académique · Semestre 5</span>
+  <h1>TOKLO<br>Amivi <em>Cécile</em></h1>
+  <p class="role">Licence Professionnelle — 3ème année · Systèmes et Réseaux Informatiques · ESIG Global Success</p>
+  <div class="meta-row">
+    <span class="pill pink">Lomé, Togo</span>
+    <span class="pill yellow">Avril 2026</span>
+    <span class="pill">Sécurité des réseaux</span>
+  </div>
+</header>
+
+<section class="block" id="s1">
+  <div class="block-inner">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>Présentation de l'étudiante</h2>
+    </div>
+    <p>Je m'appelle <strong>TOKLO Amivi Cécile</strong>, actuellement en troisième et dernière année de Licence Professionnelle, spécialité Systèmes et Réseaux Informatiques, à l'ESIG Global Success à Lomé. Mon parcours dans l'informatique a commencé bien avant les bancs de la licence : dès le lycée, j'ai développé une curiosité naturelle pour la manière dont les machines communiquent entre elles, pour les protocoles qui permettent à Internet de fonctionner, et pour les mécanismes qui protègent les données que nous confions aux réseaux chaque jour.</p>
+    <p>Après l'obtention de mon baccalauréat, j'ai fait le choix délibéré de m'orienter vers une formation professionnalisante plutôt qu'une voie purement académique. Ce choix reflète ma conviction que, dans le domaine des réseaux et de la cybersécurité, la pratique et la mise en situation réelle sont aussi importantes que la théorie.</p>
+    <blockquote>« Ce portfolio est le reflet de mon engagement : pas seulement un semestre à présenter, mais une trajectoire à tracer. »</blockquote>
+    <p>Au fil des cinq semestres traversés, j'ai progressivement construit une compréhension globale des infrastructures informatiques : de l'architecture physique des réseaux locaux jusqu'aux enjeux de sécurité avancée, en passant par l'administration des systèmes d'exploitation et la gestion de projets informatiques.</p>
+    <h3>Motivations et engagement personnel</h3>
+    <p>Ce qui m'anime profondément dans ce domaine, c'est l'idée que les réseaux informatiques sont devenus l'infrastructure invisible sur laquelle repose l'ensemble de la vie économique, sociale et institutionnelle. En Afrique, et au Togo en particulier, la transformation numérique est en marche. Je veux faire partie des professionnelles qui construisent, sécurisent et maintiennent ces infrastructures.</p>
+    <p>En dehors des cours, je pratique régulièrement sur des environnements virtuels — simulation de configurations réseau avec Packet Tracer, reproduction de scénarios d'attaque et de défense en sandbox, documentation technique sur les nouvelles normes de sécurité.</p>
+  </div>
+</section>
+
+<section class="block tint-yellow" id="s2">
+  <div class="block-inner">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Présentation de l'établissement</h2>
+    </div>
+    <p><strong>L'ESIG Global Success</strong> est un établissement d'enseignement supérieur privé situé à Lomé, capitale du Togo. Il propose des formations de niveau licence et master dans les domaines de l'informatique, des télécommunications, du management et de la gestion, avec une approche pédagogique orientée vers la professionnalisation.</p>
+    <p>La filière Systèmes et Réseaux Informatiques (SRI) est structurée en six semestres répartis sur trois années. Elle couvre l'ensemble du spectre des compétences attendues d'une technicienne réseau et sécurité : conception d'architectures réseau, administration des systèmes d'exploitation (Windows Server, Linux), sécurité des systèmes d'information, réseaux mobiles et émergents, ainsi que la conduite de projets informatiques.</p>
+    <h3>Environnement de formation</h3>
+    <p>Les salles informatiques de l'établissement sont équipées de postes permettant de simuler des architectures réseaux multi-couches. Les étudiants ont accès à des outils de simulation professionnels — <strong>Cisco Packet Tracer</strong>, <strong>GNS3</strong>, <strong>VMware</strong> — ainsi qu'à des environnements de test de pénétration dans le cadre des cours de sécurité. L'encadrement est assuré par des enseignants-chercheurs et des professionnels en activité.</p>
+    <p>Le système d'évaluation intègre des écrits, des travaux pratiques, des projets tutorisés et des <strong>Situations d'Apprentissage et d'Évaluation (SAÉ)</strong> qui placent l'étudiant dans des contextes professionnels simulés.</p>
+  </div>
+</section>
+
+<section class="block" id="s3">
+  <div class="block-inner">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Mot d'introduction</h2>
+    </div>
+    <p>Ce portfolio a été rédigé dans le cadre du module <strong>PORTSRI4 — Démarche portfolio</strong>, constituant l'une des évaluations du cinquième semestre de la Licence Professionnelle SRI. Mais au-delà de l'obligation académique, j'ai choisi de l'aborder comme un exercice sincère d'introspection et de bilan.</p>
+    <p>Le semestre 5 est dense. Il fait coexister des modules de haut niveau technique — la sécurité des réseaux, les systèmes radio mobiles, les vulnérabilités web, la cryptographie — avec des projets transversaux qui exigent de mobiliser simultanément des compétences techniques, organisationnelles et relationnelles. C'est peut-être le semestre le plus exigeant de ma formation, et c'est aussi celui dont je tire le plus d'enseignements.</p>
+    <blockquote>« Je présente mon parcours sans l'embellir : certains modules reflètent un travail solide, d'autres témoignent d'un apprentissage en cours. L'honnêteté me semble être la première qualité d'un portfolio professionnel. »</blockquote>
+    <p>Ce document s'adresse à mes enseignants, à d'éventuels recruteurs, mais aussi — et peut-être avant tout — à moi-même. Il me permettra, dans quelques années, de me rappeler qui j'étais au moment d'achever cette licence, ce que j'avais compris, ce que je cherchais à construire.</p>
+  </div>
+</section>
+
+<section class="block tint-pink" id="s4">
+  <div class="block-inner">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2>Récapitulatif des modules du Semestre 5</h2>
+    </div>
+
+    <div class="grades-group-label">UE Spécialité</div>
+    <ul class="module-list">
+      <li><span class="module-code">INF 1595</span>Concepts, optimisation et réseaux émergents (CCNA4)</li>
+      <li><span class="module-code">1INF 1527</span>Sécurité et performance</li>
+      <li><span class="module-code">2INF 1527</span>Supervision</li>
+      <li><span class="module-code">1INF 1526</span>Les systèmes radio mobiles</li>
+      <li><span class="module-code">2INF 1526</span>Les réseaux 4G (LTE)</li>
+    </ul>
+
+    <div class="grades-group-label">UE Complémentaire</div>
+    <ul class="module-list">
+      <li><span class="module-code">1INF 1522</span>Administration système Windows</li>
+      <li><span class="module-code">2INF 1522</span>Administration système Linux</li>
+      <li><span class="module-code">1INF 1525</span>Bases de la sécurité informatique</li>
+      <li><span class="module-code">2INF 1525</span>Initiation à la cryptographie</li>
+      <li><span class="module-code">3INF 1595</span>Vulnérabilités des sites web et des applications</li>
+    </ul>
+
+    <div class="grades-group-label">SAÉ &amp; Projets</div>
+    <ul class="module-list">
+      <li><span class="module-code">SAÉ501</span>Concevoir, réaliser et présenter une solution technique</li>
+      <li><span class="module-code">SAÉ502</span>Piloter un projet informatique</li>
+      <li><span class="module-code">SAÉ503</span>Sécurisation et supervision avancées d'un SI</li>
+      <li><span class="module-code">INF 1597</span>Projet tutoré (A)</li>
+      <li><span class="module-code">PORTSRI4</span>Démarche portfolio</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="s5">
+  <div class="block-inner">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <h2>Analyse détaillée par unité d'enseignement</h2>
+    </div>
+
+    <h3>5.1 — UE Spécialité : Sécurité des réseaux et réseaux mobiles</h3>
+    <p><strong>INF 1595 — CCNA4 :</strong> Ce module constitue la continuité logique des niveaux CCNA précédents. Il couvre les technologies WAN, le routage dynamique avancé (OSPF multi-zone), la qualité de service (QoS) et les réseaux définis par logiciel (SDN). Le concept de SDN m'a particulièrement fascinée : découpler le plan de contrôle du plan de données, centraliser l'intelligence réseau dans un contrôleur logiciel et rendre l'infrastructure programmable via des API représente une révolution dans la conception des réseaux modernes.</p>
+    <p><strong>INF 1527 — Sécurité et performance :</strong> Ce module a couvert les mécanismes de filtrage via ACL, la mise en place de pare-feux, les technologies VPN (IPSec et SSL/TLS), ainsi que les mécanismes de détection et prévention d'intrusion (IDS/IPS). Les attaques classiques ciblant les réseaux — DoS/DDoS, man-in-the-middle, spoofing ARP — y ont été analysées avec leurs contre-mesures. Ce module m'a permis d'acquérir une maîtrise correcte des concepts fondamentaux, avec une lacune identifiée sur l'optimisation des performances réseau en contexte de forte charge.</p>
+    <p><strong>INF 1526 — Systèmes radio mobiles et Réseaux 4G/LTE :</strong> Ces modules m'ont introduite à un territoire nouveau : les fondements de la propagation des ondes radio, les techniques de modulation (QPSK, QAM), le multiplexage (FDMA, TDMA, CDMA) et l'architecture EPC de la 4G (MME, SGW, PGW, HSS). La densité terminologique et la complexité des interfaces entre les nœuds du cœur de réseau mobile restent, je le sais déjà, un axe de travail prioritaire.</p>
+
+    <h3>5.2 — UE Complémentaire : Administration système et sécurité</h3>
+    <p><strong>INF1 522 — Administration Windows Server :</strong> Ce module a couvert l'installation de Windows Server 2019/2022, la mise en place d'Active Directory (AD DS), la gestion des utilisateurs et Unités d'Organisation, le déploiement de politiques de groupe (GPO), ainsi que la configuration des services DNS, DHCP et DFS. Ce module reflète un investissement personnel important, incluant la création à domicile de labs complets avec contrôleur de domaine, serveur DHCP/DNS et plusieurs postes clients.</p>
+    <p><strong>INF 1525 — Bases de la sécurité informatique :</strong> Ce module a abordé les grandes familles de menaces (malwares, attaques réseau, ingénierie sociale), les approches de défense en profondeur, la gestion des identités (IAM) et les audits de sécurité. C'est le module dans lequel je me suis investie avec le plus de conviction, porté par une auto-formation intensive sur des plateformes comme <strong>TryHackMe</strong>.</p>
+    <p><strong>INF 1525 — Cryptographie :</strong> Ce module a mis en lumière une limite actuelle : les mathématiques appliquées à la cryptographie. Les fondements du chiffrement symétrique (AES, DES), asymétrique (RSA, ECC), des fonctions de hachage (SHA-2, SHA-3) et de la PKI ont été abordés. La maîtrise profonde des mathématiques sous-jacentes reste un chantier ouvert.</p>
+    <p><strong>3INF 1595 — Vulnérabilités web :</strong> Module le plus révélateur du semestre. Suivant le référentiel OWASP, j'ai travaillé en profondeur sur les injections SQL, les failles XSS, les vulnérabilités CSRF et IDOR. Les travaux pratiques sur <strong>DVWA</strong> et <strong>WebGoat</strong> m'ont permis de passer du statut de spectatrice à celui de praticienne, en exploitant moi-même des failles dans un cadre légal et éthique.</p>
+
+    <h3>5.3 — SAÉ : Situations d'Apprentissage et d'Évaluation</h3>
+    <p><strong>SAÉ501 — Solution technique :</strong> Conception d'une architecture réseau sécurisée pour une organisation fictive, justifiant chaque choix technique : segmentation VLAN, DMZ, pare-feu, protocoles. Réalisée en binôme avec rédaction d'un dossier technique complet. La qualité de la solution repose sur sa cohérence avec le cahier des charges et sur la clarté de sa justification technique.</p>
+    <p><strong>SAÉ502 — Pilotage de projet :</strong> Planification de A à Z d'un projet informatique — parties prenantes, périmètre, découpage en tâches, estimation, gestion des risques. Outils mobilisés : diagramme de Gantt, matrice RACI, registre des risques. Cette SAÉ m'a confrontée à la complexité des aspects humains et organisationnels d'un projet informatique.</p>
+    <p><strong>SAÉ503 — Sécurisation avancée d'un SI :</strong> Mise en place d'une politique de sécurité complète avec identification des actifs, analyse de risque (méthodologie EBIOS Risk Manager), définition des mesures techniques et organisationnelles, déploiement d'un SIEM et rédaction d'un plan de réponse aux incidents. C'est la SAÉ qui correspond le plus précisément à mon projet professionnel.</p>
+
+    <h3>5.4 — Projet tutoré et Démarche portfolio</h3>
+    <p><strong>INF 1597 — Projet tutoré :</strong> Conception et implémentation d'une infrastructure réseau sécurisée pour une entreprise de taille moyenne, intégrant segmentation VLAN, filtrage du trafic, supervision et politique de sécurité documentée. Soutenance de 40 minutes devant jury. J'ai pris en charge la partie sécurité et la rédaction du document technique final. Ce projet m'a appris la gestion de la pression collective et la capacité à prioriser sous contrainte.</p>
+    <p><strong>PORTSRI4 — Démarche portfolio :</strong> Ce document constitue précisément la livrable principale de ce module. La rédaction m'a forcée à relire mes cours, à consulter mes notes de travaux pratiques, à mesurer le chemin parcouru et à identifier avec précision les lacunes qu'il reste à combler.</p>
+  </div>
+</section>
+
+<section class="block tint-yellow" id="s6">
+  <div class="block-inner">
+    <div class="section-head">
+      <span class="section-num">06</span>
+      <h2>Bilan des compétences acquises</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Sécurité des systèmes et des réseaux</h3>
+        <ul>
+          <li>Analyse de risque et politique de sécurité (méthodologie EBIOS)</li>
+          <li>Configuration de pare-feux et de VPN IPSec/SSL sur équipements Cisco</li>
+          <li>Détection et exploitation de vulnérabilités web (SQL, XSS, CSRF, IDOR)</li>
+          <li>Cryptographie appliquée : chiffrement symétrique/asymétrique, PKI, SSL/TLS</li>
+          <li>Mise en place de systèmes de supervision et d'alertes réseau (SNMP, Nagios)</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Administration des systèmes d'exploitation</h3>
+        <ul>
+          <li>Déploiement et administration d'Active Directory (Windows Server 2019/2022)</li>
+          <li>Gestion des stratégies de groupe (GPO) et des droits d'accès</li>
+          <li>Configuration des services réseau Windows : DNS, DHCP, DFS</li>
+          <li>Administration Linux : gestion des utilisateurs, services, permissions POSIX</li>
+          <li>Scripting Bash pour l'automatisation de tâches d'administration</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Réseaux mobiles et télécommunications</h3>
+        <ul>
+          <li>Architecture cellulaire et itinérance dans les réseaux GSM/3G/4G</li>
+          <li>Techniques de modulation et d'accès multiple : FDMA, TDMA, CDMA, OFDMA</li>
+          <li>Architecture EPC (Evolved Packet Core) de la 4G/LTE</li>
+          <li>Compréhension des enjeux de la migration vers la 5G</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h3>Gestion de projet et communication technique</h3>
+        <ul>
+          <li>Rédaction de documentations techniques structurées et lisibles</li>
+          <li>Présentation orale et soutenance de projets techniques devant jury</li>
+          <li>Planification de projet : Gantt, RACI, registre des risques</li>
+          <li>Travail en équipe et gestion des contributions dans un groupe projet</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="s7">
+  <div class="block-inner">
+    <div class="section-head">
+      <span class="section-num">07</span>
+      <h2>Axes de progression et objectifs futurs</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="eyebrow">Court terme · 0 – 6 mois</span>
+        <ul>
+          <li>Finaliser les SAÉ 501, 502, 503 avec des dossiers et soutenances de qualité</li>
+          <li>Approfondir l'administration Linux avancée (systemd, SELinux)</li>
+          <li>Renforcer la cryptographie mathématique (RSA, courbes elliptiques)</li>
+          <li>Commencer la préparation CompTIA Security+ ou Cisco CCNA</li>
+          <li>Pratiquer régulièrement sur TryHackMe et HackTheBox</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <span class="eyebrow">Moyen terme · 6 mois – 2 ans</span>
+        <ul>
+          <li>Obtenir un premier poste d'administratrice réseaux/systèmes ou technicienne sécurité</li>
+          <li>Passer et réussir la certification Cisco CCNA ou CompTIA Security+</li>
+          <li>Développer une expertise sur les technologies cloud (AWS ou Azure)</li>
+          <li>Explorer les technologies de virtualisation avancée (VMware vSphere, Proxmox)</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <span class="eyebrow">Long terme · 2 – 5 ans</span>
+        <ul>
+          <li>Se spécialiser en cybersécurité : CSIRT, SOC, red team ou conseil</li>
+          <li>Viser des certifications avancées : CEH, OSCP</li>
+          <li>Contribuer à la formation et à la sensibilisation en cybersécurité en Afrique de l'Ouest</li>
+          <li>Envisager un master spécialisé en sécurité des systèmes d'information</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block tint-pink" id="s8">
+  <div class="block-inner">
+    <div class="section-head">
+      <span class="section-num">08</span>
+      <h2>Conclusion générale</h2>
+    </div>
+    <p>Arriver au terme de ce portfolio, c'est mesurer l'écart entre l'étudiante que j'étais en entrant à l'ESIG et celle que je suis devenue après cinq semestres de formation intensive. Le semestre 5 a été particulièrement intense : il a exigé de jongler simultanément entre l'abstraction mathématique de la cryptographie, la précision procédurale de l'administration système, la créativité technique nécessaire aux SAÉ, et la rigueur analytique des modules de sécurité.</p>
+    <blockquote>« Mon investissement en sécurité applicative et dans les bases de la sécurité reflète un domaine dans lequel je me suis engagée bien au-delà des heures de cours. »</blockquote>
+    <p>Les réseaux 4G restent, je le sais déjà, un axe sur lequel je dois continuer à travailler. Chaque module de ce semestre représente une étape d'un travail qui n'est pas encore terminé.</p>
+    <p>Ce que ce semestre m'a appris, au fond, c'est que la compétence ne s'obtient pas en passant des examens — elle se construit dans la pratique, dans l'erreur, dans la correction, dans la curiosité. Je remercie chaleureusement l'ensemble du corps professoral de l'ESIG Global Success pour leur engagement pédagogique et la qualité de l'enseignement dispensé. Je remercie également mes camarades de promotion, avec qui chaque projet collaboratif a été une occasion d'apprendre autrement.</p>
+    <p><strong>Ce portfolio est un document vivant.</strong> Il sera mis à jour au fur et à mesure que le semestre avancera, que de nouvelles compétences seront acquises, et que mon parcours professionnel prendra forme. En l'état, il représente fidèlement qui je suis en avril 2026 : une étudiante déterminée, lucide sur ses forces et ses faiblesses, et profondément motivée par l'idée de contribuer à la sécurité numérique de son pays et de son continent.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="name">TOKLO Amivi Cécile</div>
+  <div class="sub">ESIG Global Success · LP Systèmes et Réseaux Informatiques, Semestre 5 — Lomé, Togo · Avril 2026</div>
+</footer>
+
+</body>
+</html>
